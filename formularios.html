@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Formulários</title>
+
+<link rel="stylesheet" href="css/form.css">
+
+</head>
+<body>
+<header>
+    <h1>Formulários</h1>
+</header>
+<main>
+ 
+<!--ATRIBUTOS-->
+<!--action="cadastro.php"   (CADASTRO EM PHP) -->
+
+<!--autocomplete="off"   (TIRA O AUTO COMPLETAR) ---- Desligar o auto completar ....autocomplete="on" ou "off....(SÓ FUNCIONA NO FORM"-->
+
+<!--method="post"   (TIRA OS DADOS DA URL , + LENTO, 3.000 BTYTS) -->
+<!--method="get"   (MOSTRA DADOS NA URL, + RAPIDO, ATÉ 3.000 BYTS) -->
+
+<!--name="nome"   (USA-SR HTML E PHP)-->
+<!--id="inome"   (USA-SE PARA JAVA SERVIDOR)-->
+<!--(Label)    ASSOCIA O  (name="")  AO CAMPO-->
+<!-- required   (CAMPO COM PREENCHIMENTO OBRIGATORIO)-->
+
+<!--minlength="5"   (Minimo de caracteres *LETRAS, NUMEROS SIMBOLOS*)--> 
+<!--maxlength="30"   Maximo de caracteres *LETRAS, NUMEROS SIMBOLOS*-->
+
+<!-- size="10"   ( TAMANHO DA CAIXA, QUE NÃO INTERFERE NA QUANTIDADE MAXIMA DE CARACTERES)-->
+
+<!--placeholder="Digite seu nome"...(dentro da caixa orientando o usuario)-->
+
+<!--autocomplete="on" ou "off....(SÓ FUNCIONA NO FORM"-->
+<!--autocomplete="current-password" ...  (SENHA ATUAL)-->
+<!--autocomplete="new-password" ...   (CADASTRE NOVA SENHA)-->
+
+<!--checked ... UMA OPÇÃO JÁ MARCADA-- ... PARA RADIO-->
+
+
+<h1>Formulário e seus atributos</h1>
+<h2>Formulário Simples</h2>
+<h3>Simples</h3>  
+
+<form action="cadastro.php" autocomplete="on" method="post">   
+<fieldset><!--fieldset .....È um agrupamento de dados-->
+<legend>Dados Pessoais</legend><!--Legenda-->
+
+    <p><label for="inome">Nome:</label>
+    <input type="text" name="nome" id="inome" required minlength="3" maxlength="30" size="10" placeholder="Digite seu Nome" autocomplete="username"></p>
+    <!-- autocomplete="username"...(dentro do input, abrir outras opções)-->
+    
+    <p><label for="isobrenome">Sobrenome:</label>
+    <input type="text" name="sobrenome" id="isobrenome" required minlength="3" maxlength="30" size="15" placeholder="Digite seu Sobrenome" autocomplete="current-password"></p>
+
+    <input type="radio" name="sexo" id="isxmasc" checked>
+    <label for="isxmasc">Masculino</label>
+
+    <input type="radio" name="sexo" id="isxfem">
+    <label for="isxfem">Feminino</label>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+
+<h2>Formulário Simples com Passaword</h2>
+<h3>Login e Senha</h3>
+
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset><!--fieldset .....È um agrupamento de dados-->
+<legend>Tela de Login</legend><!--Legenda-->
+    <p>
+    <label for="iusuario">Usário:</label>
+    <input type="text" name="usuario" id="iusuario" required minlength="3" maxlength="30" size="11" placeholder="Nome do Usuário" autocomplete="username">
+    </p>
+    
+    <p>
+    <label for="isenha">Senha:</label>
+    <input type="password" name="senha" id="isenha" required minlength="4" maxlength="12" size="11" placeholder="Digite sua Senha" autocomplete="current-password">
+    <!--autocomplete="current-password" ...  (SENHA ATUAL)-->
+    <!--autocomplete="new-password" ...   (CADASTRE NOVA SENHA)-->
+    
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+</fieldset>
+</form>
+
+<br><hr><!------------------------------------------>
+
+<h2>Formulário com Placeholder e Calendário</h2>
+<h3>Placeholder / Média / Mês / Data / Ano / e-mail / Telefone  /</h3>
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset><!--fieldset .....È um agrupamento de dados-->
+<legend>Média dos Alunos</legend>
+    <p>
+    <label for="inome">Nome</label>
+    <input type="text" name="nome" id="inome" required minlength="5" maxlength="30" size="17" autocomplete="name" placeholder="Digite o Nome do Aluno">
+    </p>
+    
+    <p>
+    <label for="imedia">Média</label>
+    <input type="number" name="media" id="imedia" required size="4" min="0" max="10" placeholder="0 a 10"step="0.1" value="5"><!--para noca quebrada EX: 2,1--><!--Value já comeca do 5 ou oque voce digita na progamação, por,em inabilita o placeholder-->
+    </p>
+    
+    <p>
+    <label for="imes">Período Letivo</label>
+    <input type="month" name="mes" id="imes" value="2022-08">
+    </p>
+    
+    <p>
+    <label for="iprova">Dia da Prova</label>
+    <input type="date" name="prova" id="iprova" value="2022-08-12" required>
+    </p>
+    
+    <p>
+    <label for="ihora">Horário da Prova</label>
+    <input type="time" name="hora" id="ihora" required>
+    </p>
+    
+    <p>
+    <label for="iemail">E-mail</label>
+    <input type="email" name="email" id="iemail" required autocomplete="email"  size="30" placeholder="Digite seu E-mail">
+    </p>
+    
+    <p>
+    <label for="itel">Telefone</label>
+    <input type="tel" name="tel" id="itel" required autocomplete="tel"  placeholder="(xx)x xxxx-xxxx">
+    </p>
+    <!--input type="tel" name="tel" id="itel" required autocomplete="tel"
+    pattern="^\(\d{2}\)d{4,5}-\d{4}$"-->
+    
+    <!--pattern="^$"............Inicio ^ e fechamento $-->
+    <!--pattern="^\d{4,5}-\d{4}$"..............Não funcionou nenhuma mascara-->
+    <!--"^[0-9]{4,5}-[0-9]{4}$"  .............Não funcionou nenhuma mascara-->   
+
+    <!--Estudar mas sobre ReGet-->
+
+   <p>
+   <input type="submit" value="Enviar">
+   <input type="reset" value="Limpar">
+   </p>
+
+</fieldset>    
+</form>
+<br><hr><!------------------------------------------>
+
+<h2>Formulário com Radio </h2>
+<h3>Sexo</h3>
+
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Escolha o Sexo</legend>
+
+    <input type="radio" name="sexo" id="isxmasc" checked>
+    <label for="isxmasc">Masculino</label><br>
+
+    <input type="radio" name="sexo" id="isxfem">
+    <label for="isxfem">Feminino</label>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+<h2>Formulário de Ckeckbox</h2>
+<h3>Checkbox</h3>
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Escolha seu Esporte Favorito</legend>
+
+    <input type="checkbox" name="judo" id="ijudo" checked ><!--checked ... UMA OPÇÃO JÁ MARCADA-->
+    <label for="ijudo">Judô</label><br>
+
+    <input type="checkbox" name="nata" id="inata" >
+    <label for="inata"> Natação</label><br>
+
+    <input type="checkbox" name="ginas" id="iginas"> 
+    <label for="iginas">Ginástica Olímpica</label><br>
+
+    <input type="checkbox" name="musc" id="imusc">  
+    <label for="imusc">Musculação</label><br>
+
+    <input type="checkbox" name="hidro" id="ihidro">  
+    <label for="ihidro">Hidroginástica</label><br>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+
+<h2>Formulário de Cores</h2>
+<h3>Cores</h3>
+
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Escolha uma Cor</legend>
+   <p>
+   <label for="icor">Escolha a Cor</label>
+   <input type="color" name="cor" id="icor" required value="#00ff00">
+   </p>
+
+   <p>
+   <input type="submit" value="Enviar">
+   <input type="reset" value="Limpar">
+   </p>
+
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+
+<h2>Formulário de Satisfação do cliente</h2>
+<h3>Satisfação do Cliente</h3>
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Informe o Nivél de Satisfação</legend>
+    <p>
+    <label for="inivel">Nivél de Satisfação</label>
+    <input type="range" name="nivel" id="inivel" min="1" max="5" value="3">
+    <!--"inivel" ... (É O ATRIBUTO DE SATISFAÇÃO)-->
+    </p>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+
+
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+<h2>Adicionar uma Foto no seu Cadastro</h2>
+<h3>Adicionar Foto</h3>
+
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Foto de Perfil</legend>
+
+   <p>
+   <label for="ifoto">Adicionar uma Foto de Perfil</label>
+   <input type="file" name="foto" id="ifoto"><!--"file" .... (ATRIBUTO DE ADICIONAR UMA FOTO)-->
+   </p>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+<h2>Função de Select</h2>
+<h3>Opção Select</h3>
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend>Estados</legend>
+<label for="iest">Estados</label>
+<select name="est" id="iest" required>
+  
+<optgroup label="Região Norte">
+    <option value="AC">Acre</option>
+    <option value="AM">Amazonas</option>
+    <option value="AP">Amapá</option>
+    <option value="TO">Tocantins</option>
+    <option value="PA">Pará</option>
+    <option value="RR">Roraima</option>
+    <option value="RO">Rodonia</option>
+</optgroup>
+
+<optgroup label="Região Nordeste">
+    <option value="CE">Ceará</option>
+    <option value="AL">Alagoas</option>
+    <option value="BA">Bahia</option>
+    <option value="MA">Maranhão</option>
+    <option value="PB">Paraíba</option>
+    <option value="PE">Pernanbuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RS">Rio Grande do Norte</option>
+    <option value="SE">Sergipe</option>
+</optgroup>
+
+<optgroup label="Região Centro-Oeste">
+    <option value="GO">Goiás</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="DF">Distrito federal</option>
+</optgroup>
+
+<optgroup label="Região Sudeste">
+    <option value="ES">Espirito Santo</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="SO" selected>São Paulo</option>
+</optgroup>
+
+<optgroup label="Região Sul">
+    <option value="PR">Paraná</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="RS">Rio Grande do Sul</option>
+</optgroup>
+</select>
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p> 
+
+</fieldset>
+</form>
+<br><hr><!------------------------------------------>
+<h2>Função DataList</h2>
+<h2>Datalist</h3>
+
+<form action="cadastro.php" method="post" autocomplete="on">
+<fieldset>
+<legend> Profissão</legend>
+    
+    <p> 
+    <label for="ilist">Qual a sua Profissão</label>
+    <input type="text" name="list" id="ilist"
+    list="lprof" autocomplete="on" required  placeholder="Digite a sua Profissão">
+    
+    <datalist id="lprof">
+        <option>Professor</option>
+        <option>Médico</option>
+        <option>Motorista</option>
+        <option>Progamador</option>
+    </datalist>
+    </p>
+
+    <p>
+        <label for="imsg">Mensagem</label><br>
+        <textarea name="msg" id="imsg" cols="30" rows="10"></textarea>
+
+    </p>
+
+    <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+    </p>
+    
+</fieldset>
+
+</form>
+<br>
+</main>
+<footer>
+    <h2>Desenvolvido por Silvani Caitano Santos</h2>
+</footer>
+</body>
+</html>
